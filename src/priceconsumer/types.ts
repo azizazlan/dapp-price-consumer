@@ -7,8 +7,8 @@ import {
 export interface Priceconsumer {
   roundId: number;
   price: number;
-  startAt: number;
-  timestamp: number;
+  startedAt: number;
+  timeStamp: number;
   answeredInRound: number;
   decimals: number;
 }

@@ -2,6 +2,7 @@ import { ethers } from 'ethers';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { FETCH_PRICECONSUMER_REQUEST } from './actionTypes';
 import PriceConsumerV3 from '../artifacts/contracts/PriceConsumerV3.sol/PriceConsumerV3.json';
+import { Priceconsumer } from './types';
 
 function* fetchPriceconsumerSaga(): any {
   yield console.log('Fetch price from Chainlink smart contract');
@@ -19,7 +20,22 @@ function* fetchPriceconsumerSaga(): any {
   );
 
   const response = yield contract.getLatestPrice();
-  console.log(response);
+  const divideBy = Math.pow(10, response[5]);
+  let result: Priceconsumer = {
+    roundId: ethers.BigNumber.from(response[0].toString())
+      .div(divideBy)
+      .toNumber(),
+    price: ethers.BigNumber.from(response[1].toString())
+      .div(divideBy)
+      .toNumber(),
+    startedAt: ethers.BigNumber.from(response[2].toString()).toNumber(),
+    timeStamp: ethers.BigNumber.from(response[3].toString()).toNumber(),
+    answeredInRound: ethers.BigNumber.from(response[4].toString())
+      .div(divideBy)
+      .toNumber(),
+    decimals: ethers.BigNumber.from(response[5]).toNumber(),
+  };
+  console.log(result);
 }
 
 function* priceconsumerSagas() {
