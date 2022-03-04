@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   getErrorSelector,
   getPendingSelector,
-  getPriceconsumerSelector,
+  getPricesSelector,
 } from './selectors';
 import { fetchPriceconsumerRequest } from './actions';
 import Table from './Table';
@@ -14,17 +14,23 @@ const Priceconsumer = () => {
   const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
   const error = useSelector(getErrorSelector);
-  const priceconsumer = useSelector(getPriceconsumerSelector);
+  const prices = useSelector(getPricesSelector);
 
   React.useEffect(() => {
     dispatch(fetchPriceconsumerRequest());
   }, []);
 
+  const handleFetchLatestPrice = () => {
+    dispatch(fetchPriceconsumerRequest());
+  };
+
   return (
     <div>
-      <Table />
+      <Table prices={prices} />
       <Divider orientation="vertical" flexItem style={{ minHeight: '15px' }} />
-      <Button variant="contained">fetch</Button>
+      <Button onClick={handleFetchLatestPrice} variant="contained">
+        fetch
+      </Button>
     </div>
   );
 };

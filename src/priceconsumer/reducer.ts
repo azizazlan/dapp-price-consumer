@@ -20,7 +20,7 @@ export default (state = initialState, action: PriceconsumerActions) => {
         pending: true,
       };
     case FETCH_PRICECONSUMER_SUCCESS:
-      updatedPrices = [...state.prices, action.payload];
+      updatedPrices = [...state.prices, action.payload.payload];
       return {
         ...state,
         pending: false,

@@ -5,7 +5,7 @@ import {
 } from './actionTypes';
 
 export interface Priceconsumer {
-  roundId: number;
+  roundID: number;
   price: number;
   startedAt: number;
   timeStamp: number;
@@ -29,7 +29,7 @@ export interface FetchPriceconsumerSuccess {
 }
 
 export interface FetchPriceconsumerSuccessPayload {
-  prices: Priceconsumer[];
+  payload: Priceconsumer;
 }
 
 export interface FetchPriceconsumerFailure {

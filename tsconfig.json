@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
@@ -8,10 +8,10 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "outDir": "dist",
-    "declaration": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": false,
+    "declaration": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

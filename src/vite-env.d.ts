@@ -2,3 +2,6 @@
 interface Window {
   ethereum: any;
 }
+interface ImportMetaEnv {
+  CONTRACT_ADDRESS: string;
+}

@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 
 import { AppState } from '../reducer';
+import { Priceconsumer } from './types';
 
 const getPending = (state: AppState) => state.priceconsumer.pending;
 
@@ -8,14 +9,17 @@ const getPrices = (state: AppState) => state.priceconsumer.prices;
 
 const getError = (state: AppState) => state.priceconsumer.error;
 
-export const getPriceconsumerSelector = createSelector(
+export const getPricesSelector = createSelector(
   getPrices,
-  (prices) => prices,
+  (prices: Priceconsumer[]) => prices,
 );
 
 export const getPendingSelector = createSelector(
   getPending,
-  (pending) => pending,
+  (pending: boolean) => pending,
 );
 
-export const getErrorSelector = createSelector(getError, (error) => error);
+export const getErrorSelector = createSelector(
+  getError,
+  (error: string | null) => error,
+);
