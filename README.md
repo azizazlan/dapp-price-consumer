@@ -1,5 +1,7 @@
 # Dapp-price-consumer
 
+![dapp-price-consumer](https://user-images.githubusercontent.com/732071/156796761-65bcc9b6-7a04-4c04-bd4c-ce57f966563c.png)
+
 The DApp is built using [vite](https://vitejs.dev/) and [hardhat](https://hardhat.org/) frameworks. The smart contract uses chainlink's [ AggregatorV2Interface ](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol) smart contract.
 
 This project was built to test my understanding after reading [this](https://docs.chain.link/docs/consuming-data-feeds/) and my attempt to combine the hardhat project with vite.
